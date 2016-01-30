@@ -14,6 +14,9 @@
             android:id="@+id/nav_currentlocation"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Current Location" />
+        <item
+            android:id="@+id/nav_currentweather"
+            android:title="current weather"/>
 
     </group>
 
