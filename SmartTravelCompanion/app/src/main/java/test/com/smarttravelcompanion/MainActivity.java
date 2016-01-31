@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import test.com.smarttravelcompanion.login.LoginActivity;
 import test.com.smarttravelcompanion.maps.test;
 import test.com.smarttravelcompanion.maps.CurrentLocation;
 
@@ -92,15 +94,16 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_travellingtips) {
 
         } else if (id == R.id.nav_currentlocation) {
+
             mIntent = new Intent(MainActivity.this,CurrentLocation.class);
             startActivity(mIntent);
+
+        } else if (id == R.id.nav_login) {
+
+            mIntent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(mIntent);
+
         } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        } else if (id == R.id.nav_aboutUs) {
-
-        }else if (id == R.id.nav_aboutUs) {
 
         }
 
