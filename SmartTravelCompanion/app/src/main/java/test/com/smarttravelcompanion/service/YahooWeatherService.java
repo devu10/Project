@@ -14,30 +14,36 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import test.com.smarttravelcompanion.data.Channel;
+import test.com.smarttravelcompanion.listener.WeatherServiceListener;
 
 /**
  * Created by devu on 2/6/2016.
  */
 public class YahooWeatherService {
-    private WeatherServiceCallback callback;
-    private String location;
+    private WeatherServiceListener listener;
     private Exception error;
 
-    public YahooWeatherService(WeatherServiceCallback callback){
-        this.callback = callback;
+    public YahooWeatherService(WeatherServiceListener listener) {
+        this.listener = listener;
     }
 
-    public String getLocation() {
-        return location;
-    }
 
-    public void refreshweather(final String l){
-        this.location=l;
-        new AsyncTask<String, Void, String>() {
+
+    public void refreshWeather(String location) {
+
+        new AsyncTask<String, Void, Channel>() {
             @Override
-            protected String doInBackground(String... strings) {
+            protected Channel doInBackground(String[] locations) {
 
-                String YQL = String.format("select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%s\") and u='c'", strings[0]);
+                String locationu = locations[0];
+
+                Channel channel = new Channel();
+
+
+                String YQL = String.format("select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%s\") and u='c'", locationu);
+
+
+
                 String endpoint = String.format("https://query.yahooapis.com/v1/public/yql?q=%s&format=json", Uri.encode(YQL));
 
 
@@ -56,47 +62,47 @@ public class YahooWeatherService {
                         result.append(line);
                     }
 
-                    return result.toString();
+                    JSONObject data = new JSONObject(result.toString());
+
+                    JSONObject queryResults = data.optJSONObject("query");
+
+                    int count = queryResults.optInt("count");
+
+                    if (count == 0) {
+                        error = new LocationWeatherException("No weather information found for " + locationu);
+                        return null;
+                    }
+
+                    JSONObject channelJSON = queryResults.optJSONObject("results").optJSONObject("channel");
+                    channel.populate(channelJSON);
+
+                    return channel;
 
                 } catch (Exception e) {
                     error = e;
                 }
+
                 return null;
             }
 
             @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
+            protected void onPostExecute(Channel channel) {
 
-                if (s == null && error != null) {
-                    callback.serviceFailure(error);
+                if (channel == null && error != null) {
+                    listener.serviceFailure(error);
+                } else {
+                    listener.serviceSuccess(channel);
                 }
 
-                try {
-                    JSONObject data = new JSONObject(s);
-                    JSONObject queryresult = data.optJSONObject("query");
-                    int count = queryresult.optInt("count");
-
-                    if (count == 0) {
-                        callback.serviceFailure(new LocationWeatherException("no weather found for " + location));
-                        return;
-                    }
-
-                    Channel channel = new Channel();
-                    channel.populate(queryresult.optJSONObject("results").optJSONObject("channel"));
-
-                    callback.serviceSuccess(channel);
-                } catch (JSONException e) {
-                    callback.serviceFailure(e);
-                }
             }
+
         }.execute(location);
     }
 
 
     public class LocationWeatherException extends Exception {
-        public LocationWeatherException(String detailmessage){
-            super(detailmessage);
+        public LocationWeatherException(String detailMessage) {
+            super(detailMessage);
         }
     }
 }

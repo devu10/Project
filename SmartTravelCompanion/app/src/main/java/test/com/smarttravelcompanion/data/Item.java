@@ -39,5 +39,16 @@ public class Item implements JSONPopulator {
         condition.populate(data.optJSONObject("condition"));
     }
 
+    @Override
+    public JSONObject toJSON() {
+        JSONObject data = new JSONObject();
+        try {
+            data.put("condition", condition.toJSON());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
 
 }
