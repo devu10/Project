@@ -1,4 +1,4 @@
-package test.com.smarttravelcompanion.login;
+package test.com.smarttravelcompanion;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,14 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import test.com.smarttravelcompanion.R;
-
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button blogin,bloginfacebook;
     EditText edEmail,edPassword;
     TextView txtregister;
     Intent mintent;
+    UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +32,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         blogin.setOnClickListener(this);
         bloginfacebook.setOnClickListener(this);
         txtregister.setOnClickListener(this);
+
+        userLocalStore = new UserLocalStore(this);
     }
 
     @Override
@@ -40,8 +41,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         switch (v.getId()){
             case R.id.blogin:
+                User user = new User(null,null);
 
-
+                userLocalStore.storeUserData(user);
+                userLocalStore.setUserLoggedIn(true);
                 break;
 
             case R.id.bloginfacebook:

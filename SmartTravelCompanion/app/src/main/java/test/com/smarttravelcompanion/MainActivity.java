@@ -3,7 +3,6 @@ package test.com.smarttravelcompanion;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,13 +12,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-import test.com.smarttravelcompanion.login.LoginActivity;
-import test.com.smarttravelcompanion.maps.test;
 import test.com.smarttravelcompanion.maps.CurrentLocation;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
+
+    TextView txtName;
+    UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +29,12 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        txtName = (TextView)findViewById(R.id.txtName);
+
+        userLocalStore = new UserLocalStore(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-
+        fab.setOnClickListener(this);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -48,6 +44,25 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (authenticate()== true) {
+            displayUserDetail();
+        }
+
+    }
+
+    private boolean authenticate(){
+        return userLocalStore.getUserLoggedIn();
+    }
+
+    private void displayUserDetail(){
+        User user = userLocalStore.getLoggedInuser();
+        txtName.setText(user.Name);
     }
 
     @Override
@@ -98,6 +113,10 @@ public class MainActivity extends AppCompatActivity
             mIntent = new Intent(MainActivity.this,CurrentLocation.class);
             startActivity(mIntent);
 
+        } else if (id == R.id.nav_currentweather) {
+            mIntent=  new Intent(MainActivity.this,WeatherActivity.class);
+            startActivity(mIntent);
+
         } else if (id == R.id.nav_login) {
 
             mIntent = new Intent(MainActivity.this, LoginActivity.class);
@@ -110,5 +129,17 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.fab:
+                userLocalStore.clearUserData();
+                userLocalStore.setUserLoggedIn(false);
+                startActivity(new Intent(this,LoginActivity.class));
+                break;
+        }
     }
 }

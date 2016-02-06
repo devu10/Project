@@ -1,4 +1,4 @@
-package test.com.smarttravelcompanion.login;
+package test.com.smarttravelcompanion;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -35,7 +35,7 @@ import java.util.Arrays;
 public class FacebookLogin extends AppCompatActivity implements View.OnClickListener {
 
     CallbackManager callbackManager;
-    TextView txtname;
+
     Button bfacebooklogin;
 
     @Override
@@ -43,7 +43,7 @@ public class FacebookLogin extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        txtname = (TextView)findViewById(R.id.txtName);
+
         bfacebooklogin = (Button)findViewById(R.id.bloginfacebook);
 
         bfacebooklogin.setOnClickListener(this);
@@ -83,7 +83,7 @@ public class FacebookLogin extends AppCompatActivity implements View.OnClickList
                             if (object != null) {
 
                                 try {
-                                    txtname.setText("You are Logged in as " + object.getString("name"));
+
                                     bfacebooklogin.setText("log in ass" + object.getString("name"));
 
                                 } catch (JSONException e) {

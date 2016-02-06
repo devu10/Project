@@ -48,13 +48,14 @@
             android:name=".maps.CurrentLocation"
             android:label="@string/title_activity_current_location" />
         <activity android:name=".maps.test" />
-        <activity android:name=".login.LoginActivity" />
-        <activity android:name=".login.RegisterActivity" />
-        <activity android:name=".login.FacebookLogin"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".FacebookLogin" />
+        <activity android:name=".WeatherActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="application_id_here" />
+            android:value="@string/application_id_here" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
