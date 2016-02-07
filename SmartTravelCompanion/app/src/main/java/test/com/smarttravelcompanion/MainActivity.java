@@ -19,7 +19,7 @@ import test.com.smarttravelcompanion.maps.CurrentLocation;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
 
-    TextView txtName;
+    //TextView txtName;
     UserLocalStore userLocalStore;
 
     @Override
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        txtName = (TextView)findViewById(R.id.txtName);
+      //  txtName = (TextView)findViewById(R.id.txtName);
 
         userLocalStore = new UserLocalStore(this);
 
@@ -53,10 +53,10 @@ public class MainActivity extends AppCompatActivity
         if (authenticate()== true) {
             displayUserDetail();
         }
-        else{
+/*        else{
             startActivity(new Intent(MainActivity.this,LoginActivity.class));
         }
-
+*/
     }
 
     private boolean authenticate(){
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity
 
     private void displayUserDetail(){
         User user = userLocalStore.getLoggedInuser();
-        txtName.setText(user.Name);
+        //txtName.setText(user.Name);
     }
 
     @Override
@@ -108,7 +108,9 @@ public class MainActivity extends AppCompatActivity
         Intent mIntent;
 
         if (id == R.id.nav_topdestination) {
-            // Handle the camera action
+
+            mIntent = new Intent(MainActivity.this,TopDestinationActivity.class);
+            startActivity(mIntent);
         } else if (id == R.id.nav_travellingtips) {
 
         } else if (id == R.id.nav_currentlocation) {

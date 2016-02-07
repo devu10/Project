@@ -52,6 +52,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".FacebookLogin" />
         <activity android:name=".WeatherActivity" />
+        <activity android:name=".TopDestinationActivity"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
