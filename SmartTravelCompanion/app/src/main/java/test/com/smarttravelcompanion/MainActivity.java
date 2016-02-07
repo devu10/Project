@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity
         if (authenticate()== true) {
             displayUserDetail();
         }
+        else{
+            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+        }
 
     }
 

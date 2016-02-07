@@ -119,8 +119,10 @@ public class WeatherActivity extends AppCompatActivity implements WeatherService
         weatherIconImageView.setImageDrawable(weatherIconDrawable);
 
 
+        String temperatureLabel = getResources().getString(R.string.temperature_output, item.getCondition().getTemperature(), channel.getUnits().getTemperature());
 
-        temperatureTextView.setText(item.getCondition().getTemperature()+"\u00B0"+channel.getUnits().getTemperature());
+        temperatureTextView.setText(temperatureLabel);
+        //temperatureTextView.setText(item.getCondition().getTemperature()+"\u00B0"+channel.getUnits().getTemperature());
         conditionTextView.setText(item.getCondition().getDescription());
         locationTextView.setText(channel.getLocation());
 
