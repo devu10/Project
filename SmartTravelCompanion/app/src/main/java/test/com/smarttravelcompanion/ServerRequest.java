@@ -141,7 +141,6 @@ public class ServerRequest {
             this.user = user;
             this.userCallback = userCallback;
 
-            @Override
             protected User doInBackground (Void...params){
                 Map<String, String> dataToSend = new HashMap<>();
 
@@ -215,7 +214,7 @@ public class ServerRequest {
                 progressDialog.dismiss();
                 userCallback.done(returnedUser);
 
-                super.onPostExecute(user);
+                super.onPostExecute(returnedUser);
             }
         }
 
