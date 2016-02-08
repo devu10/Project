@@ -1,0 +1,32 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="test.com.smarttravelcompanion.fragmentips.PatanFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgpatan"
+        android:layout_gravity="top|center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Patan"
+        android:id="@+id/txtnamepatan"
+        android:layout_gravity="top|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Patan Durbar Square is situated at the centre of the city of Lalitpur in Nepal. It is one of the three Durbar Squares in the Kathmandu Valley, all of which are UNESCO World Heritage Sites. One of its attraction is the ancient royal palace where the Malla Kings of Lalitpur resided.
+
+The Durbar Square is a marvel of Newa architecture. The Square floor is tiled with red bricks.[1] There are many temples and idols in the area. The main temples are aligned opposite of the western face of the palace.[2] The entrance of the temples faces east, towards the palace. There is also a bell situated in the alignment beside the main temples.[3] The Square also holds old Newari residential houses. There are various other temples and structures in and around Patan Durbar Square built by the Newa People.
+
+The square was heavily damaged on 25 April 2015 baisakh 12 by a major earthquake."
+        android:id="@+id/txtpatan"
+        android:layout_gravity="center_horizontal|bottom" />
+
+</FrameLayout>

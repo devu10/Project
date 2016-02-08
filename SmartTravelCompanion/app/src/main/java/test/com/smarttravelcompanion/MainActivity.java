@@ -1,8 +1,13 @@
 package test.com.smarttravelcompanion;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,13 +19,31 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+
 import test.com.smarttravelcompanion.maps.CurrentLocation;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
 
-    //TextView txtName;
-    UserLocalStore userLocalStore;
+    TextView txtFacebookName;
+    CallbackManager callbackManager;
+//    UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +52,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-      //  txtName = (TextView)findViewById(R.id.txtName);
-
-        userLocalStore = new UserLocalStore(this);
+        txtFacebookName = (TextView)findViewById(R.id.facebookname);
+        //      userLocalStore = new UserLocalStore(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
@@ -44,22 +66,102 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        initFacebookData();
+        generateKeyHash();
+    }
+
+    public void onLoginClick() {
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+
+    }
+
+    private void initFacebookData() {
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+        LoginManager.getInstance().registerCallback(callbackManager, callback);
+    }
+
+    private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
+        @Override
+        public void onSuccess(LoginResult loginResult) {
+            final GraphRequest request = GraphRequest.newMeRequest(
+                    AccessToken.getCurrentAccessToken(),
+                    new GraphRequest.GraphJSONObjectCallback() {
+                        @Override
+                        public void onCompleted(
+                                JSONObject object,
+                                GraphResponse response) {
+                            if (object != null) {
+
+                                try {
+
+                                    txtFacebookName.setText( object.getString("name"));
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+
+                        }
+                    });
+            Bundle parameters = new Bundle();
+            parameters.putString("fields", "id,name,email,gender, birthday");
+            request.setParameters(parameters);
+            request.executeAsync();
+
+        }
+
+        @Override
+        public void onCancel() {
+
+        }
+
+        @Override
+        public void onError(FacebookException error) {
+
+        }
+
+    };
+
+    public void generateKeyHash() {
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo(
+                    getPackageName(),
+                    PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+
+        } catch (NoSuchAlgorithmException e) {
+
+        }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        if (authenticate()== true) {
+ /*        if (authenticate()== true) {
             displayUserDetail();
         }
-/*        else{
+       else{
             startActivity(new Intent(MainActivity.this,LoginActivity.class));
         }
 */
     }
 
-    private boolean authenticate(){
+/*    private boolean authenticate(){
         return userLocalStore.getUserLoggedIn();
     }
 
@@ -67,7 +169,7 @@ public class MainActivity extends AppCompatActivity
         User user = userLocalStore.getLoggedInuser();
         //txtName.setText(user.Name);
     }
-
+*/
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -112,6 +214,8 @@ public class MainActivity extends AppCompatActivity
             mIntent = new Intent(MainActivity.this,TopDestinationActivity.class);
             startActivity(mIntent);
         } else if (id == R.id.nav_travellingtips) {
+            mIntent = new Intent(MainActivity.this,TravellingTipsActivity.class);
+            startActivity(mIntent);
 
         } else if (id == R.id.nav_currentlocation) {
 
@@ -124,10 +228,18 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_login) {
 
-            mIntent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(mIntent);
+            onLoginClick();
 
         } else if (id == R.id.nav_share) {
+            String playStoreLink = "https://play.google.com/store/apps/details?id=" +
+                    getPackageName();
+
+            String msg = getResources().getString(R.string.share_msg) + playStoreLink;
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, msg);
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
 
         }
 
@@ -141,9 +253,7 @@ public class MainActivity extends AppCompatActivity
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.fab:
-                userLocalStore.clearUserData();
-                userLocalStore.setUserLoggedIn(false);
-                startActivity(new Intent(this,LoginActivity.class));
+                startActivity(new Intent(this,TodoActivity.class));
                 break;
         }
     }

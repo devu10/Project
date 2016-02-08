@@ -15,6 +15,7 @@
     <string name="condition_icon">Condition Icon</string>
     <string name="loading">Loading&#8230;</string>
     <string name="temperature_output">%1$d&#176;%2$s</string>
+    <string name="share_msg">There is a new weather app in the play store. Look here </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

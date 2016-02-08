@@ -25,8 +25,8 @@
         <menu>
             <item
                 android:id="@+id/nav_login"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Login/Register" />
+                android:icon="@drawable/com_facebook_button_icon"
+                android:title="Login with Facebook" />
 
             <item
                 android:id="@+id/nav_share"

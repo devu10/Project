@@ -51,16 +51,7 @@
         android:text="Login"
         android:textSize="15dp" />
 
-    <Button
-        android:layout_marginTop="10dp"
-        android:id="@+id/bloginfacebook"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#3F5C9A"
-        android:text="Login with Facebook"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white" />
+
 
     <TextView
         android:layout_marginTop="10dp"

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button blogin,bloginfacebook;
+    Button blogin;
     EditText edEmail,edPassword;
     TextView txtregister;
     Intent mintent;
@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         blogin = (Button)findViewById(R.id.blogin);
-        bloginfacebook = (Button)findViewById(R.id.bloginfacebook);
+
 
         edEmail = (EditText) findViewById(R.id.edEmail);
         edPassword = (EditText) findViewById(R.id.edPassword);
@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txtregister = (TextView)findViewById(R.id.txtregister);
 
         blogin.setOnClickListener(this);
-        bloginfacebook.setOnClickListener(this);
+
         txtregister.setOnClickListener(this);
 
         userLocalStore = new UserLocalStore(this);
@@ -47,10 +47,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 userLocalStore.setUserLoggedIn(true);
                 break;
 
-            case R.id.bloginfacebook:
-                mintent = new Intent(LoginActivity.this,FacebookLogin.class);
-                startActivity(mintent);
-                break;
             case R.id.txtregister:
                 mintent = new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(mintent);
