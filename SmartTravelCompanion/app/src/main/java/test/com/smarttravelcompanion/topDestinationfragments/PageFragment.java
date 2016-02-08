@@ -3,6 +3,7 @@ package test.com.smarttravelcompanion.topDestinationfragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ public class PageFragment extends Fragment {
         txtpg = (TextView)view.findViewById(R.id.txtpagefragment);
         Bundle bundle = getArguments();
         String message = Integer.toString(bundle.getInt("count"));
-        txtpg.setText("this is the page "+message+"no swipe count");
+        txtpg.setText("Page no "+message+". swipe left for next");
         return view;
 
     }

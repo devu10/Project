@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,9 +10,48 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Destination name"
+        android:id="@+id/txtDestinatonName"
+        android:layout_below="@+id/txtpagefragment"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="58dp"
+        android:layout_alignRight="@+id/txtpagefragment"
+        android:layout_alignEnd="@+id/txtpagefragment"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
         android:text="Large Text"
         android:id="@+id/txtpagefragment"
-        android:textSize="40dp"
-        android:layout_gravity="center" />
-</FrameLayout>
+        android:textSize="30dp"
+        android:layout_gravity="center"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/txtDestinationDetails"
+        android:layout_below="@+id/txtDestinatonName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="96dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="80dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/txtDestinationplace"
+        android:layout_alignTop="@+id/txtDestinatonName"
+        android:layout_toRightOf="@+id/txtDestinatonName" />
+
+
+</RelativeLayout>
