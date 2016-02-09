@@ -2,6 +2,7 @@ package test.com.smarttravelcompanion.tododatabase;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -34,6 +35,13 @@ public class TodoDbHelper extends SQLiteOpenHelper {
         db.insert(todoclass.todoDescription.TABLE_NAME, null, contentValues);
         Log.e("Database operation", "one row is inserted ");
 
+    }
+
+    public Cursor getDetails (SQLiteDatabase db){
+        Cursor cursor;
+        String[] projection = {todoclass.todoDescription.TODO_TITLE,todoclass.todoDescription.TODO_DESCRIPTION};
+        cursor = db.query(todoclass.todoDescription.TABLE_NAME,projection,null,null,null,null,null);
+        return cursor;
     }
 
 

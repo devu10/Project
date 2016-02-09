@@ -36,6 +36,8 @@ public class TodoActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(mintent);
                 break;
             case R.id.btnView:
+                mintent = new Intent(TodoActivity.this,DataListActivity.class);
+                startActivity(mintent);
                 break;
             case R.id.btnDelete:
                 break;
