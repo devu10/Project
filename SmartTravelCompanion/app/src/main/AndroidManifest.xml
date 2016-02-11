@@ -54,6 +54,7 @@
         <activity android:name=".TodoActivity"/>
         <activity android:name=".AddTodoActivity"/>
         <activity android:name=".DataListActivity"/>
+        <activity android:name=".SearchTodoAcivity"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
