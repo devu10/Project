@@ -1,0 +1,30 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="test.com.smarttravelcompanion.fragmentips.BhaktapurFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbhaktapur"
+        android:layout_gravity="top|center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bhaktapur"
+        android:id="@+id/txtnamebhaktapur"
+        android:layout_gravity="top|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bhaktapur Durbar Square is the plaza in front of the royal palace of the old Bhaktapur Kingdom, 1400m above sea level.It is one of three Durbar Squares in the Kathmandu Valley in Nepal, all of which are UNESCO World Heritage Sites.
+
+The Bhaktapur Durbar Square is located in the current town of Bhaktapur, also known as Bhadgoan,which lies 13 km east of Kathmandu. While the complex consists of at least four distinct squares (Durbar Square, Taumadhi Square, Dattatreya Square and Pottery Square),[2] the whole area is informally known as the Bhakapur Durbar Square and is a highly visited site in the Kathmandu Valley."
+        android:id="@+id/txtbhaktapur"
+        android:layout_gravity="center_horizontal|bottom" />
+
+</FrameLayout>

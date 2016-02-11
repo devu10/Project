@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_topdestination"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Top Destination" />
+        <item
+            android:id="@+id/nav_travellingtips"
+            android:icon="@drawable/ic_explore_black_24dp"
+            android:title="Travelling Tips" />
+        <item
+            android:id="@+id/nav_currentlocation"
+            android:icon="@drawable/ic_location_on_black_24dp"
+            android:title="Current Location" />
+        <item
+            android:id="@+id/nav_currentweather"
+            android:icon="@drawable/icon_42"
+            android:title="current weather"/>
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_login"
+                android:icon="@drawable/com_facebook_button_icon"
+                android:title="Login with Facebook" />
+
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share"/>
+
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,32 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="test.com.smarttravelcompanion.fragmentips.BasantapurFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbasantapur"
+        android:layout_gravity="top|center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kathmandu Durbar Square (Nepali: वसन्तपुर दरवार क्षेत्र, Basantapur Darbar Kshetra) in front of the old royal palace of the former Kathmandu Kingdom is one of three Durbar (royal palace) Squares in the Kathmandu Valley in Nepal, all of which are UNESCO World Heritage Sites.
+
+Several buildings in the Square collapsed due to a major earthquake on 25 April 2015. Durbar Square was surrounded with spectacular architecture and vividly showcases the skills of the Newar artists and craftsmen over several centuries. The Royal Palace was originally at Dattaraya square and was later moved to the Durbar square.
+
+The Kathmandu Durbar Square held the palaces of the Malla and Shah kings who ruled over the city. Along with these palaces, the square surrounds quadrangles, revealing courtyards and temples. It is known as Hanuman Dhoka Durbar Square, a name derived from a statue of Hanuman, the monkey devotee of Lord Ram, at the entrance of the palace."
+        android:id="@+id/txtbasantapur"
+        android:layout_gravity="bottom|center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Basantapur"
+        android:id="@+id/txtnamebasantapur"
+        android:layout_gravity="top|center_horizontal" />
+
+</FrameLayout>

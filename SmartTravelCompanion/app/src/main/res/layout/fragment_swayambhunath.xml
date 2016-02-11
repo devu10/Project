@@ -1,0 +1,27 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="test.com.smarttravelcompanion.fragmentips.SwayambhunathFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgswayambhu"
+        android:layout_gravity="top|center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Swayambhunath"
+        android:id="@+id/txtnameswayambhu"
+        android:layout_gravity="top|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Swayambhunath (Devanagari: स्वयम्भूनाथ स्तुप; Newar: स्वयंभू; sometimes romanized Swoyambhunath) is an ancient religious architecture atop a hill in the Kathmandu Valley, west of Kathmandu city. The Tibetan name for the site means 'Sublime Trees' (Wylie:Phags.pa Shing.kun), for the many varieties of trees found on the hill. However, Shing.kun may be a corruption of the local Nepal Bhasa name for the complex, Singgu, meaning 'self-sprung'. For the Buddhist Newars in whose mythological history and origin myth as well as day-to-day religious practice, Swayambhunath occupies a central position, it is probably the most sacred among Buddhist pilgrimage sites. For Tibetans and followers of Tibetan Buddhism, it is second only to Boudhanath."
+        android:id="@+id/txtswayambhu"
+        android:layout_gravity="center_horizontal|bottom" />
+</FrameLayout>

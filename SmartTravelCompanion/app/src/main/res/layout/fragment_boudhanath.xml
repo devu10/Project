@@ -1,0 +1,29 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="test.com.smarttravelcompanion.fragmentips.BoudhanathFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbouddhanath"
+        android:layout_gravity="top|center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bouddhanath"
+        android:id="@+id/txtnamebouddhanath"
+        android:layout_gravity="top|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Boudhanath (Devanagari, Nepali: बौद्धनाथ) (also called Boudha, Bouddhanath or Baudhanath or the Khāsa Caitya) is a stupa in Kathmandu, Nepal. It is known as Khāsti in Nepal Bhasa, Jyarung Khashor in Tibetan language (Tibetan: བྱ་རུང་ཁ་ཤོར། Wylie: bya rung kha shor) or as Bauddha by speakers of Nepali. Located about 11 km (6.8 mi) from the center and northeastern outskirts of Kathmandu, the stupa's massive mandala makes it one of the largest spherical stupas in Nepal.
+
+The Buddhist stupa of Boudhanath dominates the skyline. The ancient Stupa is one of the largest in the world.The influx of large populations of refugees from Tibet has seen the construction of over 50 Tibetan Gompas (Monasteries) around Boudhanath."
+        android:id="@+id/txtbouddhanath"
+        android:layout_gravity="center_horizontal|bottom" />
+</FrameLayout>
