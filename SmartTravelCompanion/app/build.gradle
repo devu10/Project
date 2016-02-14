@@ -7,7 +7,11 @@ android {
     defaultConfig {
         applicationId "test.com.smarttravelcompanion"
         minSdkVersion 15
+<<<<<<< HEAD
         targetSdkVersion 22
+=======
+        targetSdkVersion 23
+>>>>>>> 0b41ced8297b07cc5eb736254991b8dfa05e8581
         versionCode 1
         versionName "1.0"
     }

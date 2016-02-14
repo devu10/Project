@@ -40,8 +40,11 @@ public class TodoActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(mintent);
                 break;
             case R.id.btnDelete:
+<<<<<<< HEAD
                 mintent = new Intent(TodoActivity.this,SearchTodoAcivity.class);
                 startActivity(mintent);
+=======
+>>>>>>> 0b41ced8297b07cc5eb736254991b8dfa05e8581
                 break;
         }
 

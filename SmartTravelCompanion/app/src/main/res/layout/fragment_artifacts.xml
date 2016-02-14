@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     tools:context="test.com.smarttravelcompanion.fragmentips.ArtifactsFragment">
 
+<<<<<<< HEAD
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,5 +26,12 @@
         Most Nepalese don't mind being photographed, but some do. Ask first, especially if photographing ceremonies or older people. Paying for a picture reinforces a hand-out mentality. Try instead to establish a friendly rapport with a few words or gestures."
         android:id="@+id/txtdress"
         android:layout_gravity="center_horizontal|bottom" />
+=======
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
+>>>>>>> 0b41ced8297b07cc5eb736254991b8dfa05e8581
 
 </FrameLayout>

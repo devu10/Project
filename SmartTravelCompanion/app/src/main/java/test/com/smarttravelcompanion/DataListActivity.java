@@ -2,7 +2,10 @@ package test.com.smarttravelcompanion;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+<<<<<<< HEAD
 import android.os.Bundle;
+=======
+>>>>>>> 0b41ced8297b07cc5eb736254991b8dfa05e8581
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
@@ -21,8 +24,13 @@ public class DataListActivity extends AppCompatActivity {
     ListToDoAdapter listToDoAdapter;
 
     @Override
+<<<<<<< HEAD
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+=======
+    public void onCreateSupportNavigateUpTaskStack(TaskStackBuilder builder) {
+        super.onCreateSupportNavigateUpTaskStack(builder);
+>>>>>>> 0b41ced8297b07cc5eb736254991b8dfa05e8581
         setContentView(R.layout.data_list_layout);
         listView = (ListView)findViewById(R.id.list_view);
 
@@ -49,6 +57,9 @@ public class DataListActivity extends AppCompatActivity {
             }while (cursor.moveToNext());
         }
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0b41ced8297b07cc5eb736254991b8dfa05e8581
 }
