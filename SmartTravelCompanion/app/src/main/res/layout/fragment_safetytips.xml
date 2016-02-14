@@ -4,10 +4,28 @@
     android:layout_height="match_parent"
     tools:context="test.com.smarttravelcompanion.fragmentips.SafetytipsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgsafety"
+        android:layout_gravity="top|center" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Safety Cautions"
+        android:id="@+id/txtnamebouddhanath"
+        android:layout_gravity="top|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Safety Cautions
+
+Trek with Others: Never trek alone; if you run into trouble or take a tumble no one will know. Trekking with an agency assures the greatest security.
+Security: Watch your gear carefully in lodges and on the trail. Don't be showy with expensive items, and always lock your room or baggage.
+High Altitude Sickness: Find out more from your agent or the Himalayan Rescue Association (HRA) about this sickness and helicopter rescue options. Always register your trekking plans with your embassy, consulate or HRA. Beware of other trail hazards, watch where you are going and don't over-extend yourself.
+Eating and Drinking: Never eat unpeeled fruit or vegetables unless you know they've been adequately soaked in solution. Drink only after water is boiled or iodized. Always wash your hands before eating."
+        android:id="@+id/txtdress"
+        android:layout_gravity="center_horizontal|bottom" />
 </FrameLayout>

@@ -4,10 +4,26 @@
     android:layout_height="match_parent"
     tools:context="test.com.smarttravelcompanion.fragmentips.ArtifactsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgartifacts"
+        android:layout_gravity="top|center" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Artifacts and Antiques"
+        android:id="@+id/txtnamebouddhanath"
+        android:layout_gravity="top|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="It is illegal to export anything older than 100 years. Please do not take any religious objects (prayer stones, statues, temple ritual objects, prayer flags, etc.) away from sacred sites and discourage others from doing so.
+  Taking Photos
+        Most Nepalese don't mind being photographed, but some do. Ask first, especially if photographing ceremonies or older people. Paying for a picture reinforces a hand-out mentality. Try instead to establish a friendly rapport with a few words or gestures."
+        android:id="@+id/txtdress"
+        android:layout_gravity="center_horizontal|bottom" />
 
 </FrameLayout>

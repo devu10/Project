@@ -4,10 +4,26 @@
     android:layout_height="match_parent"
     tools:context="test.com.smarttravelcompanion.fragmentips.DresstipsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgdress"
+        android:layout_gravity="top|center" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dress and Attire"
+        android:id="@+id/txtnamebouddhanath"
+        android:layout_gravity="top|center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Baggy pants or calf-length skirts with a loose top are appropriate trekking and touring wear for women. Men should wear a shirt at all times. Men's knee-length hiking shorts are fine for trekking but not when visiting temples, monasteries or homes.
+
+Nudity is particularly offensive. Whether bathing in a stream or at a village tap, men should wear shorts or underwear, women can wrap in a loongi (sarong) and douse themselves as the village women do. Only sport a swimsuit if well secluded from village eyes. Public affection is likewise frowned upon."
+        android:id="@+id/txtdress"
+        android:layout_gravity="center_horizontal|bottom" />
 
 </FrameLayout>

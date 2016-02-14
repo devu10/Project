@@ -33,7 +33,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delete To do List"
+        android:text="Search And Delete To do List"
         android:id="@+id/btnDelete"
         android:layout_below="@+id/btnView"
         android:layout_marginTop="40dp"/>
