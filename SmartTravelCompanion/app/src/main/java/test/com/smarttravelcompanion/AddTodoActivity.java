@@ -18,11 +18,8 @@ import test.com.smarttravelcompanion.tododatabase.TodoDbHelper;
 public class AddTodoActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText addTitle, addDescription;
-<<<<<<< HEAD
     Button save;
-=======
-    Button save,back;
->>>>>>> 0b41ced8297b07cc5eb736254991b8dfa05e8581
+
     Context context = this;
     TodoDbHelper todoDbHelper;
     SQLiteDatabase sqLiteDatabase;
@@ -35,17 +32,12 @@ public class AddTodoActivity extends AppCompatActivity implements View.OnClickLi
         addTitle = (EditText)findViewById(R.id.txtaddtitile);
         addDescription=(EditText)findViewById(R.id.txtadddetail);
         save = (Button)findViewById(R.id.btnAddsave);
-<<<<<<< HEAD
 
 
         save.setOnClickListener(this);
 
-=======
-        back = (Button)findViewById(R.id.btnGohome);
 
-        save.setOnClickListener(this);
-        back.setOnClickListener(this);
->>>>>>> 0b41ced8297b07cc5eb736254991b8dfa05e8581
+
 
     }
 
@@ -55,11 +47,6 @@ public class AddTodoActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.btnAddsave:
                 addContact();
                 break;
-<<<<<<< HEAD
-=======
-            case R.id.btnGohome:
-                startActivity(new Intent(this,TodoActivity.class));
->>>>>>> 0b41ced8297b07cc5eb736254991b8dfa05e8581
         }
 
     }

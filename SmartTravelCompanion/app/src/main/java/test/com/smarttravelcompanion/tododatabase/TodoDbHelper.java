@@ -44,7 +44,7 @@ public class TodoDbHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-<<<<<<< HEAD
+
     public Cursor getSearchedDetails (String title,SQLiteDatabase sqLiteDatabase){
         String[] projections = {todoclass.todoDescription.TODO_TITLE,todoclass.todoDescription.TODO_DESCRIPTION};
         String selection = todoclass.todoDescription.TODO_TITLE+" LIKE ?";
@@ -59,8 +59,7 @@ public class TodoDbHelper extends SQLiteOpenHelper {
         sqLiteDatabase.delete(todoclass.todoDescription.TABLE_NAME,selection,selection_args);
     }
 
-=======
->>>>>>> 0b41ced8297b07cc5eb736254991b8dfa05e8581
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

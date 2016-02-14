@@ -58,11 +58,7 @@ public class GoogleMapsGeocodingService {
 
                     if (results.length() == 0) {
                         error = new ReverseGeolocationException("Could not reverse geocode " + location.getLatitude() + ", " + location.getLongitude());
-<<<<<<< HEAD
 
-=======
-                        Log.e("EEEEEEEEEEEError ", "loaction aayena");
->>>>>>> 0b41ced8297b07cc5eb736254991b8dfa05e8581
                         return null;
                     }
 
